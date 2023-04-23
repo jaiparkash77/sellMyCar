@@ -6,8 +6,10 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import Button from "@mui/material/Button";
 
 export default function ButtonAppBar() {
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -24,9 +26,8 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Sell My Car
           </Typography>
-          {/* <Button color="inherit">Login</Button> */}
-          <Link to={"/SignIn"}>SignIn</Link>
-          <Link to={"/SignUp"}>SignUp</Link>
+          <Link to={"/SignIn"}><Button color="inherit" className='headerButton' style={{color:"white"}}>SignIn</Button></Link>
+          <Link to={"/SignUp"}><Button color="inherit" className='headerButton' style={{color:"white"}}>SignUp</Button></Link>
         </Toolbar>
       </AppBar>
     </Box>

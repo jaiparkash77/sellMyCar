@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,15 +10,36 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import "./AddCar.css";
 
 const theme = createTheme();
 
-export default function AddCar() {
+export default function UpdateCar() {
+    const [car,setCar] = useState([]);
   const navigate = useNavigate();
-  const [avatarPreview, setAvatarPreview] = useState("/Car.png");
+  const {id} = useParams();
 
+  const [modelName,setModelName] = useState("");
+  const [yearOfModel,setYearOfModel] = useState("");
+  const [price,setPrice] = useState("");
+  const [color,setColor] = useState("");
+  const [mileage,setMileage] = useState("");
+
+
+  useEffect(()=>{
+    const getData =async()=>{
+        let link = `http://localhost:4000/api/v1/car/${id}`;
+        const {data} = await axios.get(link);
+        setCar(data.car);
+        setModelName(data.car.modelName);
+        setYearOfModel(data.car.yearOfModel);
+        setPrice(data.car.price);
+        setColor(data.car.modelName);
+        setMileage(data.car.mileage);
+      }
+      getData();
+  },[])
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -32,43 +53,27 @@ export default function AddCar() {
     const price = data.get("price");
     const color = data.get("color");
     const mileage = data.get("mileage");
-    const avatar = avatarPreview;
 
     await axios
-      .post(
-        "http://localhost:4000/api/v1/addNewCar",
+      .put(
+        `http://localhost:4000/api/v1/collections/car/${id}`,
         {
           modelName,
           yearOfModel,
           price,
           color,
-          mileage,
-          avatar
+          mileage
         }
       )
       .then(() => {
-        console.log("Successfully Added Car");
-        alert("Successfully Added Car");
+        console.log("Successfully Updated Car");
+        alert("Successfully Updated Car");
         navigate('/');
 
       })
       .catch((error) => {
         console.log("Error:" + error);
       });
-  };
-
-  const registerDataChange = (e) => {
-    if (e.target.name === "avatar") {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-        }
-      };
-
-      reader.readAsDataURL(e.target.files[0]);
-    }
   };
 
   return (
@@ -87,7 +92,7 @@ export default function AddCar() {
             <CarRentalIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Add Car
+            Update Car
           </Typography>
           <Box
             component="form"
@@ -97,6 +102,14 @@ export default function AddCar() {
             encType="multipart/form-data"
           >
             <Grid container spacing={2}>
+            <Grid item xs={12}>
+                <b>Previous values:</b><br></br> 
+                Model Name: {modelName}<br></br>
+                Year of Model: {yearOfModel}<br></br>
+                Price: {price}<br></br>
+                Color: {color}<br></br>
+                Mileage: {mileage}<br></br>
+              </Grid>
               <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
@@ -149,22 +162,7 @@ export default function AddCar() {
                   id="mileage"
                 />
               </Grid>
-              <Grid item xs={12} sm={3}>
-                <div id="registerImage">
-                  <img src={avatarPreview} alt="Avatar Preview" />
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={9}>
-                <TextField
-                  required
-                  fullWidth
-                  name="avatar"
-                  type="file"
-                  id="avatar"
-                  accept="image/*"
-                  onChange={registerDataChange}
-                />
-              </Grid>
+              
             </Grid>
             <Button
               type="submit"
@@ -172,7 +170,7 @@ export default function AddCar() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Add Car
+              Update Car
             </Button>
           </Box>
         </Box>
