@@ -1,0 +1,155 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "sellMyCar",
+    "dateExported": "2023-04-23T09:40:55.802Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7f55a6b8-7ac6-4826-ba49-1c76758caa9d",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Register",
+            "url": "http://localhost:4000/api/v1/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-04-22T08:17:51.015Z",
+            "modified": "2023-04-22T09:19:28.154Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstName\":\"Om\",\n  \"lastName\":\"Parkash\",\n  \"email\": \"omprakash@gmail.com\",\n  \"password\": \"omprakash\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "398d9185-b6e2-49ab-9615-264cf44e3745",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Login",
+            "url": "http://localhost:4000/api/v1/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-04-22T08:21:46.772Z",
+            "modified": "2023-04-22T08:21:46.772Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"jaiparkash77@gmail.com\",\n  \"password\": \"jaiparkash\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "12a9e744-4d28-48ac-99dc-070bf9f0ea58",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Logout",
+            "url": "http://localhost:4000/api/v1/logout",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-04-22T09:25:25.884Z",
+            "modified": "2023-04-22T09:25:25.884Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "10067969-2707-49ac-af81-5f6d09829bb9",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Add New Car",
+            "url": "http://localhost:4000/api/v1/addNewCar",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-04-22T17:35:10.080Z",
+            "modified": "2023-04-22T17:35:10.080Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"modelName\": \"Maruti 200\",\n    \"yearOfModel\": \"2018\",\n    \"price\": \"75000\",\n    \"color\": \"white\",\n    \"mileage\": \"15 KMPH\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "227d8d37-3e2a-4b99-ad3a-f427c8517721",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Get All Cars",
+            "url": "http://localhost:4000/api/v1/cars",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-04-22T18:38:00.848Z",
+            "modified": "2023-04-22T18:38:00.848Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1e54872a-27c1-43cc-a015-5ba17dd357e2",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "http://localhost:4000/api/v1/cars",
+            "url": "http://localhost:4000/api/v1/cars",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-04-22T18:38:00.851Z",
+            "modified": "2023-04-22T18:38:00.851Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6f83c1b3-479c-4640-9aef-ea41b052d2b3",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Get Single Car Details",
+            "url": "http://localhost:4000/api/v1/car/644423c120c8b39fc9e5d780",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-04-22T18:53:12.271Z",
+            "modified": "2023-04-22T18:53:12.271Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4a856327-c581-4696-9a67-2318a8cf6921",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Update Car",
+            "url": "http://localhost:4000/api/v1/collections/car/644423c120c8b39fc9e5d780",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2023-04-22T18:57:37.583Z",
+            "modified": "2023-04-22T18:57:37.583Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"modelName\": \"Audi Q7\",\n    \"yearOfModel\": \"2018\",\n    \"price\": \"175000\",\n    \"color\": \"white\",\n    \"mileage\": \"15 KMPH\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a8e485fd-c3de-497d-814e-126e8bfd8b3b",
+            "colId": "be0ed6b5-7b6c-41d5-8ca7-68b8700d2244",
+            "containerId": "",
+            "name": "Delete Car",
+            "url": "http://localhost:4000/api/v1/collections/car/644424bbf8f0688ca7cd0a66",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-04-22T19:13:40.686Z",
+            "modified": "2023-04-22T19:13:40.686Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
